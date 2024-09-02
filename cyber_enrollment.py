@@ -18,8 +18,8 @@ sys.path.append(str(es_dir))
 from models.core.driver import ChromeDriver
 from utils import get_idpw
 
-web = ChromeDriver()
-web.set_window_size(1200, 1080)
+web = ChromeDriver(keep_alive=True)
+web.set_window_size(1200, 1080)  # 맥북기준
 web.set_window_position(0, 0)
 web.set_repeat(5, 0.01)
 
@@ -33,8 +33,8 @@ with web.no_error:
     web.find(id="sapSL_DEFAULT_BUTTON").click()
 
 
-# 초단위 딜레이 계속해서 계산해주면 됨.
-web.wait(realtime="10:00:14.30", timeformat="%H:%M:%S.%f")
+# # 초단위 딜레이 계속해서 계산해주면 됨.
+web.wait(realtime="09:59:59.20", timeformat="%H:%M:%S.%f")
 web.refresh()
 
 with web.no_error, web.set_repeat(1000, 0.01):
