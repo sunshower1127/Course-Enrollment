@@ -1,4 +1,5 @@
 from datetime import datetime
+
 from es.models.core.driver import ChromeDriver
 from es.models.debugger import debugger
 from es.utils import get_idpw
@@ -26,9 +27,7 @@ while True:
     end_time = datetime.now().replace(
         hour=end_time.hour, minute=end_time.minute, second=end_time.second
     )
-    print(
-        f"{begin_time=}\n{end_time=}\n{(end_time - begin_time).total_seconds()=}"
-    )
+    print(f"{begin_time=}\n{end_time=}\n{(end_time - begin_time).total_seconds()=}")
 
 
 debugger.end()

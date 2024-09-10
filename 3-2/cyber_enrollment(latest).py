@@ -5,20 +5,9 @@
 
 """
 
-import pathlib
-import sys
+from enhanced_selenium import EnhancedChrome, get_idpw
 
-# 현재 파일의 디렉토리 경로 얻기
-es_dir = pathlib.Path(__file__).parent.parent / "Enhanced-Selenium"
-
-# sys.path에 es 디렉토리 경로 추가
-sys.path.append(str(es_dir))
-
-
-from models.core.driver import ChromeDriver
-from utils import get_idpw
-
-web = ChromeDriver(keep_alive=True)
+web = EnhancedChrome()  # default : keep_alive=True 임
 web.set_window_size(1200, 1080)  # 맥북기준
 web.set_window_position(0, 0)
 web.set_repeat(5, 0.01)
